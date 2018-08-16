@@ -1,0 +1,17 @@
+aiohttp==3.0.1
+aiokafka==0.4.0
+atomic==0.7.2
+boltons==17.1.0
+boto3==1.5.30
+click==6.7
+colorama==0.3.9
+contexttimer==0.3.3
+glob2==0.6
+pyahocorasick==1.1.6
+pyyaml==3.12
+pyzmq==17.0.0
+structlog[dev]==17.2.0
+tornado==5.0.2
+ujson==1.35
+uri==2.0.0
+uvloop==0.9.1

@@ -1,5 +1,7 @@
 .DS_store
 .Rhistory
+.bash_history
+.rstudio
 
 # History files
 .Rhistory

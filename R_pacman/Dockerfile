@@ -9,15 +9,16 @@ RUN apt-get update -qq && apt-get -y --no-install-recommends install \
     gfortran \
     gcc && apt-get clean && \
     R -e "install.packages('pacman')" && \
-    R -e "install.packages('devtools')" && \
-    echo 'if (!require("pacman")) install.packages("pacman")' >> /etc/R/Rprofile.site && \
+    echo 'if (!require("pacman")) install.packages("pacman")' >> /etc/R/Rprofile.site && \    
+    echo 'options(repos = c(CRAN = "https://cran.rstudio.com/"), download.file.method = "libcurl")' >> /etc/R/Rprofile.site && \
     rm -rf /var/lib/apt/lists/*
 
 # Copy script to install packages using pacman
 COPY ./DockerConfig/pacmanInstall.R /tmp/pacmanInstall.R
 
 # Install required packages
-RUN Rscript /tmp/pacmanInstall.R 
+RUN Rscript /tmp/pacmanInstall.R && \
+    install2.r --error caret
 
 # create an R user
 ENV USER rstudio

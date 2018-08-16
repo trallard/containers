@@ -11,14 +11,13 @@
 #    -e USERID=$UID \                        # you need to share a UID so you can write to mount file on host
 #    -e PASSWORD=rstudio \                   # set rstudio password - user is rstudio
 #    -v $DATA_DIR:/home/rstudio/Data \       # mount data directory to pick up changes or write to host 
-#       rstudio/hello-world                  # the name of the image
+#       trallard/r_pacman                  # the name of the image
 
 # one liner for command line copying
 
-DATA_DIR=${PWD}/Data
-docker run -d --rm -p 28787:8787 --name hello-analytics -e USERID=$UID -v $DATA_DIR:/home/rstudio/Data rstudio/hello-world
+DATA_DIR=${PWD}/Data # adjust this accordingly to the  directory you want to use to persist things on
+
+docker run -d --rm -v $DATA_DIR:/home/rstudio -p 8787:8787 --name analytics trallard/r_pacman
 
 # this is an example of running the container in interactive mode and logging into a bash shell
-# sudo docker run -it --rm  --name hello-world2 -e USERID=$UID -v $DATA_DIR:/home/rstudio/Data rstudio/hello-world  /bin/bash
-
-docker run -it --rm -v $(pwd):/home/rstudio -p 8787:8787 --name analytics -e USERID=$UID trallard/r_ws
+# docker run -it --rm -v $(pwd):/home/rstudio -p 8787:8787 --name analytics trallard/r_pacman /bin/bash

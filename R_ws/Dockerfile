@@ -21,21 +21,19 @@ RUN apt-get update && \
 
 WORKDIR /install
 RUN echo 'options(repos = c(CRAN = "https://cran.rstudio.com/"), download.file.method = "libcurl")' >> /etc/R/Rprofile.site && \
-    R -e 'install.packages("devtools")' && \ 
-    R -e 'install.packages("pacman")'
+    R -e "install.packages('pacman')" && \
+    echo 'if (!require("pacman")) install.packages("pacman")' >> /etc/R/Rprofile.site && \
+    rm -rf /var/lib/apt/lists/*
+
+COPY ./DockerConfig/pacmanInstall.R /tmp/pacmanInstall.R
+
+# Install required packages
+RUN Rscript /tmp/pacmanInstall.R 
 
 WORKDIR /app
 COPY requirements.txt ./
 RUN pip install --upgrade pip && \ 
     pip install -r requirements.txt
-
-# create an R user
-ENV HOME /home/user
-RUN useradd --create-home --home-dir $HOME user \
-    && chown -R user:user $HOME
-
-WORKDIR $HOME
-USER user
 
 # set the command
 CMD ["R"]

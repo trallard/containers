@@ -1,0 +1,17 @@
+1534409129306:pacman
+1534409145773:library('plyr')
+1534409152646:library('data.table')
+1534409238472:library('knitr')
+1534409243071:library('dplyr')
+1534409323935:pacman::p_load(jsonlite)
+1534409330557:clear
+1534409481988:library('dplyr')
+1534409496317:library('plyr')
+1534409608899:installed.packages()
+1534409712399:pacman::p_info('dplyr')
+1534409716105:pacman::p_info('plyr')
+1534409815008:pacman::p_install('dplyr')
+1534411440655:library('dplyr')
+1534411725922:library('dplyr')
+1534413076686:pacman::p_info('plyur')
+1534413079551:pacman::p_info('plyr')

@@ -1,0 +1,9 @@
+pwd
+cd
+pwd
+cd
+pwd
+pwd
+pwd
+whoami
+clear

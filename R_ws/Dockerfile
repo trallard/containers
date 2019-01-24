@@ -1,5 +1,5 @@
 FROM python:3.6.4-stretch
-LABEL maintainer="Tania Allard <tania.allard@hellosoda.com>"
+LABEL maintainer="Tania Allard"
 
 # Defaults install
 RUN apt-get update && \

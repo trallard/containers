@@ -1,4 +1,4 @@
-LABEL mainatiner="Tania Allard tania.allard@hellosoda.com"
+LABEL mainatiner="Tania Allard Tania Allard"
 
 FROM jupyter/scipy-notebook
 

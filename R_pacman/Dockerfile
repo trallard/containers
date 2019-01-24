@@ -1,5 +1,5 @@
 FROM rocker/rstudio:3.3.2
-LABEL maintainer="tania.allard@hellosoda.com"
+LABEL maintainer="Tania Allard"
 
 # R pre-requisites and install pacman
 

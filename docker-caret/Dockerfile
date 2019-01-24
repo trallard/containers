@@ -1,5 +1,5 @@
 FROM rocker/rstudio:latest
-LABEL maintainer="tania.allard@hellosoda.com"
+LABEL maintainer="Tania Allard"
 
 # R pre-requistes
 RUN apt-get update -qq && apt-get -y --no-install-recommends install \

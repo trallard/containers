@@ -8,7 +8,7 @@ colorama==0.3.9
 contexttimer==0.3.3
 glob2==0.6
 pyahocorasick==1.1.6
-pyyaml==3.12
+pyyaml
 pyzmq==17.0.0
 structlog[dev]==17.2.0
 tornado==5.0.2

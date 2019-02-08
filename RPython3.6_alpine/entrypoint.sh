@@ -1,9 +1,13 @@
-#!/bin/ash
+#!/bin/sh
+if [ -z "${AUTHORIZED_KEYS}" ]; then
+    echo "Need your ssh public key as AUTHORIZED_KEYS env variable. Abnormal exit ..."
+    exit 1
+fi
 
-# generate host keys if not present
-ssh-keygen -A
-sed -ie 's/#Port 22/Port 22/g' /etc/ssh/sshd_config
+echo "Populating /root/.ssh/authorized_keys with the value from AUTHORIZED_KEYS env variable ..." \
+&& echo "${AUTHORIZED_KEYS}" > /root/.ssh/authorized_keys \
+echo "Populating jovyan keys with the value from AUTHORIZED_KEYS env variable ..." \
+&& echo "${AUTHORIZED_KEYS}" > /home/jovyan/.ssh/authorized_keys
 
-# do not detach (-D), log to stderr (-e), passthrough other arguments
-exec /usr/sbin/sshd -D -e "$@"
-
+# Execute the CMD from the Dockerfile:
+exec "$@"

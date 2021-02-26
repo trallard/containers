@@ -1,4 +1,4 @@
-aiohttp==3.0.1
+aiohttp==3.7.4
 aiokafka==0.4.0
 atomic==0.7.2
 boltons==17.1.0
